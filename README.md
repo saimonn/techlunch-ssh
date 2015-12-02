@@ -1,6 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
 
 - [Tunnels](#tunnels)
       - [Expose port 80 from the remote machine to your local port 8080:](#expose-port-80-from-the-remote-machine-to-your-local-port-8080)
@@ -14,7 +14,10 @@
     - [Basics](#basics)
     - [keep idle connexions alive on a long time](#keep-idle-connexions-alive-on-a-long-time)
     - [Reuse existing ssh connexions](#reuse-existing-ssh-connexions)
-    - [Not ssh, but usefull:](#not-ssh-but-usefull)
+- [Rock around the clo^W ssh](#rock-around-the-clo%5Ew-ssh)
+    - [Transfert a lot of files across a "secure" LAN](#transfert-a-lot-of-files-across-a-secure-lan)
+    - [Launch remote X commands](#launch-remote-x-commands)
+    - [get a remote X11 display, help your mama](#get-a-remote-x11-display-help-your-mama)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -149,7 +152,12 @@ Note: commandline options can overide ssh_config
   *ssh_config*
 
 
-### Not ssh, but usefull:
+Rock around the clo^W ssh
+=========================
+
+### Transfert a lot of files across a "secure" LAN
+
+rsync of scp are good, but when you want to transfert _a lot_ of small files, tar is often faster. If you don't care about security, you can just spawn a tunnel with netcat commands and pipes to/from tar, like in these examples:
 
     wrkdest:~$  nc -lp 9999 | tar xv
 
@@ -158,6 +166,28 @@ Note: commandline options can overide ssh_config
 
 
   or:
+
     wrksrc:~$ python -m SimplHTTPServer
 
     wrkdest:~$ wget http://wrksrc:8080/path/to/file
+
+
+
+### Launch remote X commands
+
+    ssh -XY user@example.com xeyes
+
+
+### get a remote X11 display, help your mama
+
+You need to have a way to connect with ssh to your mama's workstation, and to get her Xauth token (you know her password, right ?)
+
+    ssh -L5900:localhost:5900 mama@mama-laptop.example.com x11vnc
+
+  and:
+
+    xvncviewer localhost
+
+  over a slow link, you will prefer these parameters:
+
+    xtightvncviewer -encodings "tight copyrect" -quality 1 localhost   # you can even try -quality 0, if you don't need to be able to read text on remote screen
