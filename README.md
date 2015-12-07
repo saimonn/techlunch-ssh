@@ -195,9 +195,30 @@ Quizz:
 ```
 
 
-### keep idle connexions alive on a long time
+### Keep idle connexions alive on a long time
 
-    TCPKeepAlive yes        # regular "ping" at TCP level
+  When you let an idle ssh terminal for a long time, some router between
+  your client and the server may reset the ssh tunnel because they think
+  it's a dead connection. OpenSSH offers two options against this:
+
+  - TCP keepalives
+  - Server alive messages
+
+  If they are sent, death of the connection or crash of one of the machines
+  will be properly noticed.  This option only uses TCP keepalives (as opposed
+  to using ssh level keepalives), so takes a long time to notice when the
+  connection dies.  As such, you probably want the ServerAliveInterval option as
+  well. However, this means that connections will die if the route is down
+  temporarily, and some people find it annoying.
+
+  Beware that some network appliances can detect these standard keepalive packets,
+  and still consider the connection inactive and reset it.
+
+  The server alive messages are sent through the encrypted channel and therefore
+  will not be spoofable. Nor easily detectable. The TCP keepalive option enabled
+  by TCPKeepAlive is spoofable.
+
+    TCPKeepAlive yes        # Like a "ping" at TCP level.
     ServerAliveInterval 25  # "ping" at application Level (inside ssh connexion, better against some firewall nazipliances)
     ServerAliveCountMax 5   # after this number of non-response, disconnect
 
