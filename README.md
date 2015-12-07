@@ -2,6 +2,9 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [General SSH tips](#general-ssh-tips)
+    - [escape sequences:](#escape-sequences)
+      - [force kill an ssh connection:](#force-kill-an-ssh-connection)
 - [Tunnels](#tunnels)
       - [Expose port 80 from the remote machine to your local port 8080:](#expose-port-80-from-the-remote-machine-to-your-local-port-8080)
       - [Allow hosts who can reach you (or your docker containers) to connect via your tunnel:](#allow-hosts-who-can-reach-you-or-your-docker-containers-to-connect-via-your-tunnel)
@@ -13,7 +16,8 @@
 - [ssh_config tips](#ssh_config-tips)
     - [Basics](#basics)
     - [keep idle connexions alive on a long time](#keep-idle-connexions-alive-on-a-long-time)
-    - [Reuse existing ssh connexions](#reuse-existing-ssh-connexions)
+    - [Fix long delay on ssh connexion (reverse DNS issue)](#fix-long-delay-on-ssh-connexion-reverse-dns-issue)
+    - [Reuse SSH Connection To Speed Up Remote Login Process](#reuse-ssh-connection-to-speed-up-remote-login-process)
 - [Rock around the clo^W ssh](#rock-around-the-clo%5Ew-ssh)
     - [Transfert a lot of files across a "secure" LAN](#transfert-a-lot-of-files-across-a-secure-lan)
     - [Launch remote X commands](#launch-remote-x-commands)
