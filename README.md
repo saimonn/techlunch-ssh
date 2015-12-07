@@ -159,20 +159,40 @@ also:
 ssh_config tips
 ===============
 
+### Define ssh clients parameters and aliases
 
-### Basics
+```
+    host deathstar
+      user         dvador
+      hostname     212.6.6.6
+      port         222
+```
 
-    host bstar
+Note: commandline options can overide ssh_config
+
+    ssh deathstart.example.org   # Will get you with login "dvador" on port 222
+    ssh root@dstar               # Will get you with login "root"
+    ssh -A deathstar.example.org # Will forward your ssh-agent connexion. You should only do that if you trust deathstar server.
+
+```
+    host deathstar.example.org dstar
       user         dvador
       hostname     212.6.6.6
       port         222
       ForwardAgent Yes  # Umad?
+```
 
 
-Note: commandline options can overide ssh_config
 
-    ssh bstar       # will get you with login "dvador"
-    ssh root@bstar  # will get you with login "root"
+Quizz:
+
+  Where will you get a shell when you type ```ssh nsa.org``` and you have this ssh_config: ?
+
+```
+    host nsa.org
+      hostname localhost
+      user     root
+```
 
 
 ### keep idle connexions alive on a long time
