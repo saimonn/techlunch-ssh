@@ -195,12 +195,27 @@ Note: commandline options can overide ssh_config
 
 ### Reuse SSH Connection To Speed Up Remote Login Process
 
-  *ssh_config*
+    ControlMaster:
+  Enables the sharing of multiple sessions over a single network connection. When
+  set to “yes”, ssh(1) will listen for connections on a control socket specified
+  using the ControlPath argument.  Additional sessions can connect to this socket
+  using the same ControlPath with ControlMaster set to “no” (the default).  These
+  sessions will try to reuse the master instance's network connection rather than
+  initiating new ones, but will fall back to connecting normally if the control
+  socket does not exist, or is not listening.
+
+  Just be careful that this can sometime lead to problem connection if the socket
+  exist, but the Master connection is broken. In this case it may help to manually
+  delete the socket specified by the ControlPath. For this reason, I advise to set
+  the ControlPath to a tmpfs filesystem, so it's deleted when your machine is
+  powered off.
+
+  *ssh_config example*
 
 ```
   host *
-    controlmaster auto
-    controlpath /tmp/ssh-%r@%h:%p
+    ControlMaster auto
+    ControlPath /dev/shm/.myusername.ssh-%r@%h:%p
 ```
 
 Rock around the clo^W ssh
