@@ -161,6 +161,8 @@ ssh_config tips
 
 ### Define ssh clients parameters and aliases
 
+  ssh_config:
+
 ```
     host deathstar
       user         dvador
