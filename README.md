@@ -178,10 +178,30 @@ Note: commandline options can overide ssh_config
     ServerAliveCountMax 5   # after this number of non-response, disconnect
 
 
-### Reuse existing ssh connexions
+
+### Fix long delay on ssh connexion (reverse DNS issue)
+
+  Sometimes, connecting to a server is very long. Everyting works fine, except for
+  the delay. This issue is often linked to a bad reverse DNS resolution for your client IP:
+
+  The [question has been answered on serverfault](https://serverfault.com/questions/371682/ssh-long-ssh-delay-and-resolv-conf-file).
+  If you can't fix your reverse DNS, you have to disable DNS resolution done by the ssh server.
+
+  Add the following parameter to sshd_config, and reload:
+
+``` /etc/ssh/sshd_config
+    UseDNS no
+```
+
+### Reuse SSH Connection To Speed Up Remote Login Process
 
   *ssh_config*
 
+```
+  host *
+    controlmaster auto
+    controlpath /tmp/ssh-%r@%h:%p
+```
 
 Rock around the clo^W ssh
 =========================
