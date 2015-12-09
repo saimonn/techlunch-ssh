@@ -6,8 +6,10 @@
     - [escape sequences:](#escape-sequences)
       - [force kill an ssh connection:](#force-kill-an-ssh-connection)
 - [Tunnels](#tunnels)
-      - [Expose port 80 from the remote machine to your local port 8080:](#expose-port-80-from-the-remote-machine-to-your-local-port-8080)
+      - [Access remote services from your workstation](#access-remote-services-from-your-workstation)
+      - [Access far away remote service](#access-far-away-remote-service)
       - [Allow hosts who can reach you (or your docker containers) to connect via your tunnel:](#allow-hosts-who-can-reach-you-or-your-docker-containers-to-connect-via-your-tunnel)
+    - [Remote tunnels](#remote-tunnels)
       - [Use your ssh tunnel as a (socks) proxy :](#use-your-ssh-tunnel-as-a-socks-proxy-)
       - [Forward ports when you are already connected](#forward-ports-when-you-are-already-connected)
 - [Bounces](#bounces)
@@ -60,8 +62,24 @@ use full when, for example, the remote instance have just been shutdown while yo
 Tunnels
 =======
 
+When SSH connexions are established, you can also forward ports inside this connexions.
 
-#### Expose port 80 from the remote machine to your local port 8080:
+This is called Port Forwading in SSH man pages, and often SSH tunnels by people using it.
+
+You can setup three kind of tunnels:
+
+  - Local Forwarding
+
+  - Remote Forwarding
+
+  - Dynamic Forwading
+
+#### Access remote services from your workstation
+
+  This may be the most common use of tunnels. You want to reach a service on the host you are connecting to.
+  You open an local port on your workstation (here 8080) that points to the remote service (here localhost:80).
+
+  Keep in mind that in this case, the remote service will see you connection comming from localhost, not a remote one.
 
   Command line:
 
@@ -71,17 +89,34 @@ Tunnels
 
     LocalForward 8080 localhost:80
 
+#### Access far away remote service
+
+
 
 #### Allow hosts who can reach you (or your docker containers) to connect via your tunnel:
 
+  This case is like the precedent one, plus it open your redirection to everyone
+  that can access your workstation (collegues workstations, your local docker
+  containers, ...)
+
+  Be carefull about security when using this.
+
+  The syntax is the same as the common tunnels, except you bind to "everyone" (```*```).
+  By default SSH binds to ```127.0.0.1``` when ommited (see ```GatewayPorts``` in ```man ssh_config```).
+
+  Instead of binding to ```*```, you can also bind to a specific IP address of your workstation (given by ```ifconfig``` or ```ip ad```).
+
   Command line:
 
-    ssh -L 0.0.0.0:8080:localhost:80 user@example.com
+    ssh -L *:8080:localhost:80 user@example.com
 
   ssh_config:
 
-    LocalForward 0.0.0.0:8080 localhost:80
+    LocalForward *:8080 localhost:80
 
+### Remote tunnels
+
+  Last commands show how to connect from your local area to a remote service. This 
 
 #### Use your ssh tunnel as a (socks) proxy :
 
