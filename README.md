@@ -14,14 +14,15 @@
       - [Connect to a server behind a front server](#connect-to-a-server-behind-a-front-server)
       - [Forward a port behind a ssh bastion](#forward-a-port-behind-a-ssh-bastion)
 - [ssh_config tips](#ssh_config-tips)
-    - [Basics](#basics)
-    - [keep idle connexions alive on a long time](#keep-idle-connexions-alive-on-a-long-time)
+    - [Define ssh clients parameters and aliases](#define-ssh-clients-parameters-and-aliases)
+    - [Keep idle connexions alive on a long time](#keep-idle-connexions-alive-on-a-long-time)
     - [Fix long delay on ssh connexion (reverse DNS issue)](#fix-long-delay-on-ssh-connexion-reverse-dns-issue)
     - [Reuse SSH Connection To Speed Up Remote Login Process](#reuse-ssh-connection-to-speed-up-remote-login-process)
 - [Rock around the clo^W ssh](#rock-around-the-clo%5Ew-ssh)
     - [Transfert a lot of files across a "secure" LAN](#transfert-a-lot-of-files-across-a-secure-lan)
     - [Launch remote X commands](#launch-remote-x-commands)
     - [get a remote X11 display, help your mama](#get-a-remote-x11-display-help-your-mama)
+- [TODO](#todo)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -304,3 +305,13 @@ You need to have a way to connect with ssh to your mama's workstation, and to ge
   over a slow link, you will prefer these parameters:
 
     xtightvncviewer -encodings "tight copyrect" -quality 1 localhost   # you can even try -quality 0, if you don't need to be able to read text on remote screen
+
+
+TODO
+====
+
+  - scp -3
+
+  - sftp
+  
+  - sshfs
