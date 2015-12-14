@@ -235,6 +235,8 @@ Quizz:
 
 ### Keep idle connexions alive on a long time
 
+![alive](https://media.giphy.com/media/P3PR0xbjTPEaY/giphy.gif)
+
   When you let an idle ssh terminal for a long time, some router between
   your client and the server may reset the ssh tunnel because they think
   it's a dead connection. OpenSSH offers two options against this:
