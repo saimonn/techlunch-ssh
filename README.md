@@ -91,6 +91,18 @@ You can setup three kind of tunnels:
 
     LocalForward 8080 localhost:80
 
+  On an established connection:
+
+```
+user@example.com:~$ ~C 
+ssh> L8080:localhost:80
+Forwarding port.
+
+user@example.com:~$
+```
+
+
+
 #### Access far away remote service
 
 
