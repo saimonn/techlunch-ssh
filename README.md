@@ -258,9 +258,18 @@ Quizz:
   will not be spoofable. Nor easily detectable. The TCP keepalive option enabled
   by TCPKeepAlive is spoofable.
 
+```
     TCPKeepAlive yes        # Like a "ping" at TCP level.
     ServerAliveInterval 25  # "ping" at application Level (inside ssh connexion, better against some firewall nazipliances)
     ServerAliveCountMax 5   # after this number of non-response, disconnect
+```
+
+  also on command-line:
+
+```
+  ssh -o ServerAliveInterval=25 user@example.com
+```
+
 
 
 
