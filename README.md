@@ -74,6 +74,8 @@ You can setup three kind of tunnels:
 
   - Dynamic Forwading
 
+![tunnels](http://i.imgur.com/I2lEqmP.jpg)
+
 #### Access remote services from your workstation
 
   This may be the most common use of tunnels. You want to reach a service on the host you are connecting to.
