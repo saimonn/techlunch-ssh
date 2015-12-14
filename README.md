@@ -298,12 +298,6 @@ Quizz:
   initiating new ones, but will fall back to connecting normally if the control
   socket does not exist, or is not listening.
 
-  Just be careful that this can sometime lead to problem connection if the socket
-  exist, but the Master connection is broken. In this case it may help to manually
-  delete the socket specified by the ControlPath. For this reason, I advise to set
-  the ControlPath to a tmpfs filesystem, so it's deleted when your machine is
-  powered off.
-
   *ssh_config example*
 
 ```
@@ -311,6 +305,13 @@ Quizz:
     ControlMaster auto
     ControlPath /dev/shm/.myusername.ssh-%r@%h:%p
 ```
+
+  Just be careful that this can sometime lead to problem connection if the socket
+  exist, but the Master connection is broken. In this case it may help to manually
+  delete the socket specified by the ControlPath. For this reason, I advise to set
+  the ControlPath to a tmpfs filesystem, so it's deleted when your machine is
+  powered off.
+
 
 Rock around the clo^W ssh
 =========================
