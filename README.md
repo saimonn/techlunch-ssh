@@ -74,7 +74,7 @@ You can setup three kind of tunnels:
 
   - Dynamic Forwading
 
-![tunnels](http://i.imgur.com/I2lEqmP.jpg)
+![tunnels](https://media.giphy.com/media/vuGosPHIHWcSs/giphy.gif)
 
 #### Access remote services from your workstation
 
