@@ -89,7 +89,15 @@ You can setup three kind of tunnels:
 
   *ssh_config*:
 
-    LocalForward 8080 localhost:80
+```
+    host example.com
+      LocalForward 8080 localhost:80
+
+
+    $ ssh example.com   # implicit tunnel
+
+
+```
 
   On an established connection:
 
