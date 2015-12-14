@@ -329,6 +329,8 @@ rsync of scp are good, but when you want to transfert _a lot_ of small files, ta
 
 ### get a remote X11 display, help your mama
 
+![help](http://ak-hdl.buzzfed.com/static/enhanced/webdr06/2013/8/2/6/anigif_enhanced-buzz-18671-1375439971-6.gif)
+
 You need to have a way to connect with ssh to your mama's workstation, and to get her Xauth token (you know her password, right ?)
 
     ssh -L5900:localhost:5900 mama@mama-laptop.example.com x11vnc
