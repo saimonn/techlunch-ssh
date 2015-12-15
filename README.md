@@ -12,6 +12,7 @@
     - [Remote tunnels](#remote-tunnels)
       - [Use your ssh tunnel as a (socks) proxy :](#use-your-ssh-tunnel-as-a-socks-proxy-)
       - [Forward ports when you are already connected](#forward-ports-when-you-are-already-connected)
+- [ssh-agent](#ssh-agent)
 - [Bounces](#bounces)
       - [Connect to a server behind a front server](#connect-to-a-server-behind-a-front-server)
       - [Forward a port behind a ssh bastion](#forward-a-port-behind-a-ssh-bastion)
@@ -178,13 +179,13 @@ ssh-agent
   It is usually launched automatically on your workstation when you start your x-session.
 
 ```
-      ssh-add [path/to/id_rsa private key]
+  ssh-add [path/to/id_rsa private key]
 ```
 
   List current keys loaded by the agent:
 
 ```
-    ssh-add -l
+  ssh-add -l
 ```
 
   Delete all identifies:
