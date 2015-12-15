@@ -60,7 +60,7 @@ You can enter commands to ssh while connected, by typing the ```~``` character, 
 
     ~.
 
-use full when, for example, the remote instance have just been shutdown while you where connected, and your terminal seems stuck
+usefull when, for example, the remote instance have just been shutdown while you where connected, and your terminal seems stuck
 
 
 Tunnels
