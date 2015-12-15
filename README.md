@@ -169,6 +169,8 @@ user@example.com:~$
 ssh-agent
 =========
 
+![agent](https://media.giphy.com/media/zKIRQFMPkHIdy/giphy.gif)
+
   ssh-agent stores keys in memory and keeps them available to ssh when you establish connection.
 
   It can also be "forwarded" on a remote host.
