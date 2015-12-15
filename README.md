@@ -166,6 +166,39 @@ user@example.com:~$
     $ 
 
 
+ssh-agent
+=========
+
+  ssh-agent stores keys in memory and keeps them available to ssh when you establish connection.
+
+  It can also be "forwarded" on a remote host.
+
+  It is usually launched automatically on your workstation when you start your x-session.
+
+```
+      ssh-add [path/to/id_rsa private key]
+```
+
+  List current keys loaded by the agent:
+
+```
+    ssh-add -l
+```
+
+  Delete all identifies:
+
+```
+  ssh-add -D
+
+```
+
+  Connect to server AND forward your ssh-agent:
+
+```
+  ssh -A user@example.com
+```
+
+
 Bounces
 =======
 
@@ -233,9 +266,13 @@ ssh_config tips
 
 Note: commandline options can overide ssh_config
 
+```
     ssh deathstart.example.org   # Will get you with login "dvador" on port 222
     ssh root@dstar               # Will get you with login "root"
     ssh -A deathstar.example.org # Will forward your ssh-agent connexion. You should only do that if you trust deathstar server.
+```
+
+
 
 ```
     host deathstar.example.org dstar
