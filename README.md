@@ -54,6 +54,9 @@ You can enter commands to ssh while connected, by typing the ```~``` character, 
 
 #### force kill an ssh connection:
 
+![killed](https://uproxx.files.wordpress.com/2012/04/arya1.gif)
+
+
     ~.
 
 use full when, for example, the remote instance have just been shutdown while you where connected, and your terminal seems stuck
