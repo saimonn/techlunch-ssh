@@ -156,9 +156,23 @@ user@example.com:~$
 
 ### Remote tunnels
 
-  Last commands show how to connect from your local area to a remote service. This 
+  Last commands show how to connect from your local area to a remote service. remote tunnel are the same, just inverted.
+
+  You can open connection from the remote host (or its neighbours) to you local host or network.
+
+  Command line:
+
+    ssh -R *:8080:localhost:80 user@example.com
+
+  ssh_config:
+
+    RemoteForward *:8080 localhost:80
 
 #### Use your ssh tunnel as a (socks) proxy :
+
+  This can be very usefull if you are behind a firewall that let you connect to port 443, but filters everything on unencrypted connections like HTTP.
+
+  This will initiate a connection from your workstation, to your server (example.com), and every software able to talk SOCKS protocol will be free on internet.
 
   Command line:
 
