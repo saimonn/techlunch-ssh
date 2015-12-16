@@ -4,11 +4,6 @@ Why this techlunch ?
 
 (warning, subliminal images may appear)
 
-![why2](https://media.giphy.com/media/GpArNUu71qmZ2/giphy.gif)
-![why3](https://media.giphy.com/media/TLaA0Vej9GGek/giphy.gif)
-![why4](https://media.giphy.com/media/F6Ngh55u1Xc2s/giphy.gif)
-![why5](http://memecrunch.com/meme/3F8O/free-food/image.jpg?w=640&c=1)
-![why6](http://m.memegen.com/stjhhh.jpg)
 ![why1](https://media.giphy.com/media/QxkvRIKYf9Ozm/giphy.gif)
 
 We use ssh almost everyday, but I think most of us use less than 10% of what can be done.
