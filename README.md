@@ -10,7 +10,7 @@ We use ssh almost everyday, but I think most of us use less than 10% of what can
 
 Maybe after this lunch people will know more like 30% of OpenSSH capacities
 
-This documentation is about OpenSSH. Some options might applies to other ssh implementations.
+This documentation is about OpenSSH. Some options might apply to other ssh implementations.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
