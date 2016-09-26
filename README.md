@@ -1,10 +1,7 @@
 Why this techlunch ?
 ====================
 
-
-(warning, subliminal images may appear)
-
-![why1](https://media.giphy.com/media/QxkvRIKYf9Ozm/giphy.gif)
+![tshirt](https://www.openbsd.org/images/tshirt-9.jpg)
 
 We use ssh almost everyday, but I think most of us use less than 10% of what can be done.
 
