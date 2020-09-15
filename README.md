@@ -454,3 +454,7 @@ TODO
   - sftp
   
   - sshfs
+
+Links
+=====
+  - To accelerate bulk transfert with SSH, see this patch (allows to use all core for encryption routines) https://www.psc.edu/index.php/hpn-ssh
